@@ -1,12 +1,10 @@
 package com.juaracoding;
 
 import com.juaracoding.drivers.DriverSingleton;
-import com.juaracoding.pages.AddProductToCartPage;
+import com.juaracoding.pages.AddProductToCartPage2;
 import com.juaracoding.pages.CheckoutPage;
 import com.juaracoding.pages.LoginPage;
 import org.openqa.selenium.WebDriver;
-
-import java.util.Scanner;
 
 public class Main {
     static WebDriver driver;
@@ -21,10 +19,10 @@ public class Main {
         loginPage.login("josepedrofebian", "Password190299$"); // menjalankan method login dari kelas loginPage
         DriverSingleton.assertEqual(loginPage.getTextLoginSuccess(), "Hello");
 
-        AddProductToCartPage addProductToCart = new AddProductToCartPage();
-        System.out.println("Test Add Product To Cart Success");
-        addProductToCart.addToCartProduct(); // menjalankan method addProductToCart dari kelas AddProductToCart
-        DriverSingleton.assertEqual(addProductToCart.getAddToCartSuccess(), "Black Cross Back Maxi Dress");
+        AddProductToCartPage2 add2ProductToCart = new AddProductToCartPage2();
+        System.out.println("Test Add 2 Product To Cart Success");
+        add2ProductToCart.add2ProductToCart(); // menjalankan method addProductToCart dari kelas AddProductToCart
+        DriverSingleton.assertEqual(add2ProductToCart.getAddToCartSuccess(), "“black lux graphic t-shirt” has been added to your cart.");
 
         CheckoutPage checkoutPage = new CheckoutPage();
         System.out.println("Test Checkout failed without click checkbox");
@@ -37,7 +35,6 @@ public class Main {
 
         DriverSingleton.delay(3);
         DriverSingleton.closeObjectInstance();
-
     }
 
 }
